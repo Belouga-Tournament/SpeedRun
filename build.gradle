@@ -1,0 +1,27 @@
+plugins {
+    id("java")
+}
+
+group = "fr.belouga"
+version = "1.0"
+
+repositories {
+    mavenCentral()
+
+    maven {
+        url 'https://nexus.mrcubee.net/repository/minecraft/'
+    }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
+}
+
+jar {
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    exclude "**/META-INF/**"
+}
