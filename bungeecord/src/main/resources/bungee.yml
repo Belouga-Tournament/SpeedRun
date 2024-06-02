@@ -1,0 +1,3 @@
+name: SpeedRun
+version: 1.0
+main: fr.belouga.proxy.bungee.SpeedRunProxyPlugin

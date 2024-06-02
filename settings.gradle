@@ -1,2 +1,7 @@
 rootProject.name = 'speedrun'
 
+['common', 'spigot', 'bungeecord'].each {
+    include ":speedrun-${it}"
+    project(":speedrun-${it}").projectDir = file(it)
+}
+
