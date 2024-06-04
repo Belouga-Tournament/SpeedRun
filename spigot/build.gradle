@@ -1,4 +1,15 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+repositories {
+    mavenCentral()
+}
+shadowJar {
+    // Replace 'com.yourpackage' with the package of your plugin
+    relocate 'fr.mrmicky.fastboard', 'com.yourpackage.fastboard'
+}
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
     compileOnly project(':speedrun-common')
+    implementation 'fr.mrmicky:fastboard:2.1.2'
 }
