@@ -1,14 +1,18 @@
 plugins {
+    id 'java'
+    id 'maven-publish'
     id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 repositories {
+    mavenLocal()
     mavenCentral()
+    maven { url = "https://repo.codemc.io/repository/maven-snapshots/" }
+    maven { url ="https://mvnrepository.com/artifact/"}
+    maven { url ='https://jitpack.io' }
 }
-shadowJar {
-    // Replace 'com.yourpackage' with the package of your plugin
-    relocate 'fr.mrmicky.fastboard', 'com.yourpackage.fastboard'
-}
+
 dependencies {
+    compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT'
     compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
     compileOnly project(':speedrun-common')
     compileOnly 'org.projectlombok:lombok:1.18.32'
@@ -17,3 +21,9 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
     implementation 'fr.mrmicky:fastboard:2.1.2'
 }
+
+shadowJar {
+    relocate 'fr.mrmicky.fastboard', 'fr.nicknqck.scoreboard'
+}
+
+setLibsDirName("T:\\Bureau\\Dev\\Serv\\serveur de test\\plugins")
